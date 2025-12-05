@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Employe implements Comparable<Employe>{
     private int id;
@@ -16,6 +17,11 @@ public class Employe implements Comparable<Employe>{
         this.prenom = prenom;
         this.nomDep = nomDep;
         this.grade = grade;
+    }
+    public Employe(int id ,String nom) {
+        this.id = id;
+        this.nom = nom;
+
     }
     public int getId() {
         return id;
@@ -53,6 +59,11 @@ public class Employe implements Comparable<Employe>{
 
     public void setGrade(int grade) {
         this.grade = grade;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nom);
     }
 
     public boolean equals(Object object){
